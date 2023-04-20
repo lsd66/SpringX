@@ -1,0 +1,451 @@
+{
+	"info": {
+		"_postman_id": "3695ef93-597a-4393-a9ba-ff404f2cf885",
+		"name": "Oauth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "密码模式下获取",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "112233",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "all",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "正常获取 refresh_token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "112233",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "all",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "过期获取 refresh_token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "112233",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyIiwic2NvcGUiOlsiYWxsIl0sImF0aSI6ImM4OWRjN2M5LWI3OTAtNDAxMi04ZjE3LTJjZWNiYjk1ODNhNiIsImV4cCI6MTY4MTg5NTA3MCwiYXV0aG9yaXRpZXMiOlsidXNlciJdLCJqdGkiOiJmMGVhNzk2OC04Nzk0LTRhZTktYjUwYy03NjMyNTViNjIwZjciLCJjbGllbnRfaWQiOiJjbGllbnQiLCJlbmhhbmNlIjoi5aKe5by655qE5L-h5oGvIn0.CDGj4YnFi4jEk8xwLspuSSvZ2E5SSsaeAwULdOkvYpc",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "授权码下获取token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "112233",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "By9Hod",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "密码模式下获取(user)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "112233",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "all",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "密码模式解析token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2ODE4MDg1MjUsImF1dGhvcml0aWVzIjpbImFkbWluIl0sImp0aSI6IjhhYzA5Y2ZkLTA0Y2YtNGQwMS1iMTQxLTg2NDQ3YjVjYjhjNyIsImNsaWVudF9pZCI6ImNsaWVudCIsImVuaGFuY2UiOiLlop7lvLrnmoTkv6Hmga8ifQ.1ijRBpoHIFojWdtGQ0epxmqHXNNGpMETNyYVLOJfHhg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:8080/user/getCurrentUser",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"getCurrentUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "从数据库查询出所有权限",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2ODE4MDg1MjUsImF1dGhvcml0aWVzIjpbImFkbWluIl0sImp0aSI6IjhhYzA5Y2ZkLTA0Y2YtNGQwMS1iMTQxLTg2NDQ3YjVjYjhjNyIsImNsaWVudF9pZCI6ImNsaWVudCIsImVuaGFuY2UiOiLlop7lvLrnmoTkv6Hmga8ifQ.1ijRBpoHIFojWdtGQ0epxmqHXNNGpMETNyYVLOJfHhg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:8080/api/user/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save(admin可访问）",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2ODE4MDg1MjUsImF1dGhvcml0aWVzIjpbImFkbWluIl0sImp0aSI6IjhhYzA5Y2ZkLTA0Y2YtNGQwMS1iMTQxLTg2NDQ3YjVjYjhjNyIsImNsaWVudF9pZCI6ImNsaWVudCIsImVuaGFuY2UiOiLlop7lvLrnmoTkv6Hmga8ifQ.1ijRBpoHIFojWdtGQ0epxmqHXNNGpMETNyYVLOJfHhg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "bearer $2a$10$N97RyMYeQ7aVTxLvdxq5NeBivdbj/u2GQtHERISUt8qhKBfnjSC1q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account\": \"user\",\r\n        \"description\": \"test user\",\r\n        \"password\": \"$2a$10$N97RyMYeQ7aVTxLvdxq5NeBivdbj/u2GQtHERISUt8qhKBfnjSC1q\",\r\n        \"name\": \"Jacks\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/user/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save(admin可访问） user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyIiwic2NvcGUiOlsiYWxsIl0sImF0aSI6ImY2Mjg1NGZjLTBkNGMtNGE2MC1hOGY2LTE3N2VjMWVmZThjOCIsImV4cCI6MTY4MTg5NDQ4NCwiYXV0aG9yaXRpZXMiOlsidXNlciJdLCJqdGkiOiIxNDk3MzVjMy1mNmE4LTQwOWUtYWIwNi0yODkzNjFhYjJlMjIiLCJjbGllbnRfaWQiOiJjbGllbnQiLCJlbmhhbmNlIjoi5aKe5by655qE5L-h5oGvIn0.hW3fqOC3MNP3sbpZdHXyDmw9AiBLCIQCgsR_QkYFiIg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ1c2VyIiwic2NvcGUiOlsiYWxsIl0sImF0aSI6ImY2Mjg1NGZjLTBkNGMtNGE2MC1hOGY2LTE3N2VjMWVmZThjOCIsImV4cCI6MTY4MTg5NDQ4NCwiYXV0aG9yaXRpZXMiOlsidXNlciJdLCJqdGkiOiIxNDk3MzVjMy1mNmE4LTQwOWUtYWIwNi0yODkzNjFhYjJlMjIiLCJjbGllbnRfaWQiOiJjbGllbnQiLCJlbmhhbmNlIjoi5aKe5by655qE5L-h5oGvIn0.hW3fqOC3MNP3sbpZdHXyDmw9AiBLCIQCgsR_QkYFiIg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"account\": \"user\",\r\n        \"description\": \"test user\",\r\n        \"password\": \"$2a$10$N97RyMYeQ7aVTxLvdxq5NeBivdbj/u2GQtHERISUt8qhKBfnjSC1q\",\r\n        \"name\": \"Jacks\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/user/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
