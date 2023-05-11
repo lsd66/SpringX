@@ -9,6 +9,6 @@ Spring security oauth2 项目
    PS:实现从数据库加载客户端信息可以完成多租户模式。
 
 ## 工具介绍：
-idea2021.3
-datagrip2021.3
-postman9.12.12
+idea,
+datagrip,
+postman.
